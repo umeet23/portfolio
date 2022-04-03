@@ -1,0 +1,44 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:prettier/recommended",
+        "eslint:recommended",
+        "plugin:jest-dom/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "testing-library"
+    ],
+    "rules": {
+        "react/jsx-uses-react": "error",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "overrides": [
+        {
+            // Enable eslint-plugin-testing-library rules for test files only!
+            "files": [
+              "**/__specs__/**/*.[jt]s?(x)",
+              "**/__tests__/**/*.[jt]s?(x)",
+              "**/?(*.)+(spec|test).[jt]s?(x)"
+            ],
+            "extends": ["plugin:testing-library/react"],
+            "rules": {
+              "testing-library/no-node-access": "warn"
+            }
+          }
+    ]
+}
